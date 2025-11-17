@@ -22,6 +22,7 @@ export default function AuthForm() {
   const handleSignIn = async (e: React.FormEvent) => {
     e.preventDefault()
     console.log('Sign in form submitted with:', { email, password })
+    console.log('Form element:', e.currentTarget)
     
     if (!email || !password) {
       toast({
@@ -33,6 +34,7 @@ export default function AuthForm() {
     }
 
     setLoading(true)
+    console.log('About to call signIn function...')
     const result = await signIn(email, password)
     console.log('Sign in result:', result)
     
